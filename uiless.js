@@ -3556,22 +3556,22 @@
             Lt = o.g;
         document.body.onload = function() {
             var e = new kt({
-                    initialSettings: {
-						AutoPlayVideo: true,
-						AutoConnect: true,
-						ss: "ws://localhost:80",
-						StartVideoMuted: true,
-						WaitForStreamer: true,
+                        initialSettings: {
+                        AutoPlayVideo: true,
+                        AutoConnect: true,
+                        ss: "ws://localhost:80",
+                        StartVideoMuted: true,
+                        WaitForStreamer: true,
                         MinBitrate: 2000,
-						WebRTCMaxBitrate: 25000,
+                        WebRTCMaxBitrate: 25000,
                         PreferredCodec: "H264",
                         MaxFPS: 60,
                         UseAdaptiveBitrate: true
-						XRControllerInput: false,
-						GamepadInput: false,
-						TouchInput: false,
-						MouseInput: false,
-						KeyboardInput: false,
+                        XRControllerInput: false,
+                        GamepadInput: false,
+                        TouchInput: false,
+                        MouseInput: false,
+                        KeyboardInput: false,
                         bIgnoreKeyboardInput: true,
                         bSuppressBrowserKeys: true,
                         bUseArrayBuffer: true
