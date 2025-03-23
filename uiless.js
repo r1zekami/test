@@ -3562,12 +3562,19 @@
 						ss: "ws://localhost:80",
 						StartVideoMuted: true,
 						WaitForStreamer: true,
-						WebRTCMaxBitrate: 25000,      // Set max bitrate to 15,000 kbps (15 Mbps)
-						XRControllerInput: false,     // Disable XR controller input
-						GamepadInput: false,          // Disable gamepad input
-						TouchInput: false,            // Disable touch input
-						MouseInput: false,            // Disable mouse input
-						KeyboardInput: false          // Disable keyboard input
+                        MinBitrate: 2000,
+						WebRTCMaxBitrate: 25000,
+                        PreferredCodec: "H264",
+                        MaxFPS: 60,
+                        UseAdaptiveBitrate: true
+						XRControllerInput: false,
+						GamepadInput: false,
+						TouchInput: false,
+						MouseInput: false,
+						KeyboardInput: false,
+                        bIgnoreKeyboardInput: true,
+                        bSuppressBrowserKeys: true,
+                        bUseArrayBuffer: true
                     }
                 }),
                 t = new Lt(e, {
