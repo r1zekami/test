@@ -60,9 +60,7 @@ set "CONFIG_PATH=%ROOT_DIR%SignallingWebServer\config.json"
 
 echo Cleaning Public directory...
 cd "%ROOT_DIR%SignallingWebServer\Public"
-rmdir "%ROOT_DIR%SignallingWebServer\Public\css" /s /q 2>nul
-rmdir "%ROOT_DIR%SignallingWebServer\Public\images" /s /q 2>nul
-del player.js player.html showcase.html showcase.js stresstest.html stresstest.js uiless.html uiless.js /Q 2>nul
+del player.js uiless.html uiless.js /Q 2>nul
 
 
 echo Downloading icon.png...
