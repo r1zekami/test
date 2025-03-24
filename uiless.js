@@ -10242,7 +10242,7 @@ document.body.onload = function () {
         initialSettings: {
             AutoPlayVideo: true,
             AutoConnect: true,
-            ss: "ws://localhost:80",
+            ss: "ws://127.0.0.1:80",
             StartVideoMuted: true,
             WaitForStreamer: true,
             MinBitrate: 2000,
