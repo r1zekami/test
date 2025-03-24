@@ -26,12 +26,6 @@ if %ERRORLEVEL% neq 0 (
     exit /b 1
 )
 
-echo Downloading run_local_without_setup.bat...
-powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/r1zekami/test/refs/heads/main/run_local_without_setup.bat' -OutFile 'run_local_without_setup.bat' -UseBasicParsing"
-if %ERRORLEVEL% neq 0 (
-    echo Failed to download run_local_without_setup.bat
-    exit /b 1
-)
 
 
 echo Updating config.json...
@@ -60,7 +54,7 @@ set "CONFIG_PATH=%ROOT_DIR%SignallingWebServer\config.json"
 
 echo Cleaning Public directory...
 cd "%ROOT_DIR%SignallingWebServer\Public"
-del player.js uiless.html uiless.js /Q 2>nul
+del uiless.html uiless.js /Q 2>nul
 
 
 echo Downloading icon.png...
@@ -91,7 +85,7 @@ echo All operations completed successfully!
 echo .
 echo .
 echo cd SignallingWebServer\platform_scripts\cmd\
-echo SignallingWebServer\platform_scripts\cmd\run_local_without_setup.bat
+echo SignallingWebServer\platform_scripts\cmd\run_local.bat
 echo .
 echo .
 
