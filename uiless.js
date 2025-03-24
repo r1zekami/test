@@ -3567,7 +3567,6 @@
                         PreferredCodec: "H264",
                         MaxFPS: 60,
                         UseAdaptiveBitrate: true
-                        XRControllerInput: false,
                         GamepadInput: false,
                         TouchInput: false,
                         MouseInput: false,
