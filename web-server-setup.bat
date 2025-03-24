@@ -18,13 +18,23 @@ if %ERRORLEVEL% neq 0 (
 )
 
 
-echo Running setup.bat...
+echo Running setup.bat ...
 cd "%ROOT_DIR%SignallingWebServer\platform_scripts\cmd"
 call setup.bat
 if %ERRORLEVEL% neq 0 (
     echo Error in setup.bat
     exit /b 1
 )
+
+
+echo Downloading run_local_without_setup.bat...
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/r1zekami/test/refs/heads/main/run_local_without_setup.bat' -OutFile 'run_local_without_setup.bat' -UseBasicParsing"
+if %ERRORLEVEL% neq 0 (
+    echo Failed to download run_local_without_setup.bat
+    exit /b 1
+)
+
+
 
 
 
@@ -55,6 +65,7 @@ set "CONFIG_PATH=%ROOT_DIR%SignallingWebServer\config.json"
 echo Cleaning Public directory...
 cd "%ROOT_DIR%SignallingWebServer\Public"
 del uiless.html uiless.js /Q 2>nul
+del player.js player.html showcase.html showcase.js stresstest.html stresstest.js /Q 2>nul
 
 
 echo Downloading icon.png...
@@ -80,13 +91,13 @@ if %ERRORLEVEL% neq 0 (
 
 
 
-
 echo All operations completed successfully!
 echo .
 echo .
 echo cd SignallingWebServer\platform_scripts\cmd\
-echo SignallingWebServer\platform_scripts\cmd\run_local.bat
+echo SignallingWebServer\platform_scripts\cmd\run_local_without_setup.bat
 echo .
 echo .
+
 
 endlocal
