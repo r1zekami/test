@@ -18,7 +18,7 @@ if %ERRORLEVEL% neq 0 (
 )
 
 
-echo Running SignallingWebServer setup...
+echo Running setup.bat...
 cd "%ROOT_DIR%SignallingWebServer\platform_scripts\cmd"
 call setup.bat
 if %ERRORLEVEL% neq 0 (
@@ -26,7 +26,14 @@ if %ERRORLEVEL% neq 0 (
     exit /b 1
 )
 
-:: Обновление config.json
+echo Downloading run_local_without_setup.bat...
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/r1zekami/test/refs/heads/main/run_local_without_setup.bat' -OutFile 'run_local_without_setup.bat' -UseBasicParsing"
+if %ERRORLEVEL% neq 0 (
+    echo Failed to download run_local_without_setup.bat
+    exit /b 1
+)
+
+
 echo Updating config.json...
 set "CONFIG_PATH=%ROOT_DIR%SignallingWebServer\config.json"
 (
@@ -53,9 +60,18 @@ set "CONFIG_PATH=%ROOT_DIR%SignallingWebServer\config.json"
 
 echo Cleaning Public directory...
 cd "%ROOT_DIR%SignallingWebServer\Public"
-
+rmdir "%ROOT_DIR%SignallingWebServer\Public\css" /s /q 2>nul
+rmdir "%ROOT_DIR%SignallingWebServer\Public\images" /s /q 2>nul
 del player.js player.html showcase.html showcase.js stresstest.html stresstest.js uiless.html uiless.js /Q 2>nul
 
+
+echo Downloading icon.png...
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/r1zekami/test/refs/heads/main/icon.png' -OutFile 'icon.png' -UseBasicParsing"
+if %ERRORLEVEL% neq 0 (
+    echo Failed to download icon.png
+    exit /b 1
+)
+        
 echo Downloading uiless.js...
 powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/r1zekami/test/refs/heads/main/uiless.js' -OutFile 'uiless.js' -UseBasicParsing"
 if %ERRORLEVEL% neq 0 (
@@ -71,5 +87,14 @@ if %ERRORLEVEL% neq 0 (
 )
 
 
+
+
 echo All operations completed successfully!
+echo .
+echo .
+echo cd SignallingWebServer\platform_scripts\cmd\
+echo SignallingWebServer\platform_scripts\cmd\run_local_without_setup.bat
+echo .
+echo .
+
 endlocal
