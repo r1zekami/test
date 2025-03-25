@@ -4827,12 +4827,12 @@ class PixelStreaming {
         // WebRTC settings
         this.config._addOnNumericSettingChangedListener(_Config_Config__WEBPACK_IMPORTED_MODULE_4__.NumericParameters.WebRTCMinBitrate, (newValue) => {
             _Logger_Logger__WEBPACK_IMPORTED_MODULE_5__.Logger.Log(_Logger_Logger__WEBPACK_IMPORTED_MODULE_5__.Logger.GetStackTrace(), '--------  Sending web rtc settings  --------', 7);
-            this._webRtcController.sendWebRTCMinBitrate(newValue * 1000 /* kbps to bps */);
+            this._webRtcController.sendWebRTCMinBitrate(1000 * 1000 /* kbps to bps */);
             _Logger_Logger__WEBPACK_IMPORTED_MODULE_5__.Logger.Log(_Logger_Logger__WEBPACK_IMPORTED_MODULE_5__.Logger.GetStackTrace(), '-------------------------------------------', 7);
         });
         this.config._addOnNumericSettingChangedListener(_Config_Config__WEBPACK_IMPORTED_MODULE_4__.NumericParameters.WebRTCMaxBitrate, (newValue) => {
             _Logger_Logger__WEBPACK_IMPORTED_MODULE_5__.Logger.Log(_Logger_Logger__WEBPACK_IMPORTED_MODULE_5__.Logger.GetStackTrace(), '--------  Sending web rtc settings  --------', 7);
-            this._webRtcController.sendWebRTCMaxBitrate(newValue * 1000 /* kbps to bps */);
+            this._webRtcController.sendWebRTCMaxBitrate(10000 * 1000 /* kbps to bps */);
             _Logger_Logger__WEBPACK_IMPORTED_MODULE_5__.Logger.Log(_Logger_Logger__WEBPACK_IMPORTED_MODULE_5__.Logger.GetStackTrace(), '-------------------------------------------', 7);
         });
         this.config._addOnNumericSettingChangedListener(_Config_Config__WEBPACK_IMPORTED_MODULE_4__.NumericParameters.WebRTCFPS, (newValue) => {
@@ -10242,12 +10242,12 @@ document.body.onload = function () {
         initialSettings: {
             AutoPlayVideo: true,
             AutoConnect: true,
-            ss: "ws://81.94.155.103/:80",
+            ss: "ws://127.0.0.1/:80",
             StartVideoMuted: true,
             WaitForStreamer: true,
             MinBitrate: 2000,
             WebRTCMaxBitrate: 10000,
-            PreferredCodec: "video/VP9",
+            PreferredCodec: "video/AV1",
             MaxFPS: 32,
             UseAdaptiveBitrate: false
         }
