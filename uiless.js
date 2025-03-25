@@ -460,10 +460,10 @@ class Config {
             60, /*value*/ useUrlParams));
         this.numericParameters.set(NumericParameters.WebRTCMinBitrate, new _SettingNumber__WEBPACK_IMPORTED_MODULE_3__.SettingNumber(NumericParameters.WebRTCMinBitrate, 'Min Bitrate (kbps)', 'The minimum bitrate that WebRTC should use.', 0 /*min*/, 500000 /*max*/, settings && settings.hasOwnProperty(NumericParameters.WebRTCMinBitrate) ?
             settings[NumericParameters.WebRTCMinBitrate] :
-            0, /*value*/ useUrlParams));
+            1000, /*value*/ useUrlParams));
         this.numericParameters.set(NumericParameters.WebRTCMaxBitrate, new _SettingNumber__WEBPACK_IMPORTED_MODULE_3__.SettingNumber(NumericParameters.WebRTCMaxBitrate, 'Max Bitrate (kbps)', 'The maximum bitrate that WebRTC should use.', 0 /*min*/, 500000 /*max*/, settings && settings.hasOwnProperty(NumericParameters.WebRTCMaxBitrate) ?
             settings[NumericParameters.WebRTCMaxBitrate] :
-            0, /*value*/ useUrlParams));
+            10000, /*value*/ useUrlParams));
         this.numericParameters.set(NumericParameters.StreamerAutoJoinInterval, new _SettingNumber__WEBPACK_IMPORTED_MODULE_3__.SettingNumber(NumericParameters.StreamerAutoJoinInterval, 'Streamer Auto Join Interval (ms)', 'Delay between retries when waiting for an available streamer.', 500 /*min*/, 900000 /*max*/, settings && settings.hasOwnProperty(NumericParameters.StreamerAutoJoinInterval) ?
             settings[NumericParameters.StreamerAutoJoinInterval] :
             3000, /*value*/ useUrlParams));
@@ -4322,9 +4322,9 @@ class PeerConnectionController {
      * @returns A modified Session Descriptor
      */
     mungeSDP(sdp, useMic) {
-        let mungedSDP = sdp.replace(/(a=fmtp:\d+ .*level-asymmetry-allowed=.*)\r\n/gm, '$1;x-google-start-bitrate=10000;x-google-max-bitrate=100000\r\n');
+        let mungedSDP = sdp.replace(/(a=fmtp:\d+ .*level-asymmetry-allowed=.*)\r\n/gm, '$1;x-google-start-bitrate=1000;x-google-max-bitrate=10000\r\n');
         // set max bitrate to highest bitrate Opus supports
-        let audioSDP = 'maxaveragebitrate=510000;';
+        let audioSDP = 'maxaveragebitrate=10000;';
         if (useMic) {
             // set the max capture rate to 48khz (so we can send high quality audio from mic)
             audioSDP += 'sprop-maxcapturerate=48000;';
@@ -10242,14 +10242,14 @@ document.body.onload = function () {
         initialSettings: {
             AutoPlayVideo: true,
             AutoConnect: true,
-            ss: "ws://176.99.133.188/:80",
+            ss: "ws://81.94.155.103/:80",
             StartVideoMuted: true,
             WaitForStreamer: true,
             MinBitrate: 2000,
-            WebRTCMaxBitrate: 25000,
-            PreferredCodec: "H264",
-            MaxFPS: 40,
-            UseAdaptiveBitrate: true
+            WebRTCMaxBitrate: 10000,
+            PreferredCodec: "video/VP9",
+            MaxFPS: 32,
+            UseAdaptiveBitrate: false
         }
     });
     // Create a PixelStreaming instance and attach the video element to an existing parent div
