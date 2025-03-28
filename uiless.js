@@ -10242,11 +10242,11 @@ document.body.onload = function () {
         initialSettings: {
             AutoPlayVideo: true,
             AutoConnect: true,
-            ss: "ws://127.0.0.1/:80",
+            ss: "ws://81.94.158.203:80",
             StartVideoMuted: true,
             WaitForStreamer: true,
             MinBitrate: 2000,
-            WebRTCMaxBitrate: 10000,
+            MaxBitrate: 10000,
             PreferredCodec: "video/VP8",
             MaxFPS: 32,
             UseAdaptiveBitrate: true
