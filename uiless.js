@@ -10247,9 +10247,10 @@ document.body.onload = function () {
             WaitForStreamer: true,
             MinBitrate: 2000,
             WebRTCMaxBitrate: 10000,
-            PreferredCodec: "video/AV1",
+            PreferredCodec: "video/VP8",
             MaxFPS: 32,
-            UseAdaptiveBitrate: false
+            UseAdaptiveBitrate: true
+            StreamerId: "SFU"
         }
     });
     // Create a PixelStreaming instance and attach the video element to an existing parent div
