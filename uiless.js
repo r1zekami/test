@@ -10242,15 +10242,12 @@ document.body.onload = function () {
         initialSettings: {
             AutoPlayVideo: true,
             AutoConnect: true,
-            ss: "ws://127.0.0.1:80",
+            ss: "ws://127.0.0.1:80", //make it public ip of the server
             StartVideoMuted: true,
             WaitForStreamer: true,
-            //MinBitrate: 2000,
-            //MaxBitrate: 10000,
-            //PreferredCodec: "video/VP8",
             MaxFPS: 32,
             UseAdaptiveBitrate: true
-            //StreamerId: "SFU"
+            StreamerId: "SFU"
         }
     });
     // Create a PixelStreaming instance and attach the video element to an existing parent div
