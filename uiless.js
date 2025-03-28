@@ -10247,7 +10247,7 @@ document.body.onload = function () {
             WaitForStreamer: true,
             //MinBitrate: 2000,
             //MaxBitrate: 10000,
-            PreferredCodec: "video/VP8",
+            //PreferredCodec: "video/VP8",
             MaxFPS: 32,
             UseAdaptiveBitrate: true
             //StreamerId: "SFU"
